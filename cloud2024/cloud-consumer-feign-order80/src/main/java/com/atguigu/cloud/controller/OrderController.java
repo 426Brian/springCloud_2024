@@ -7,6 +7,8 @@ import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+
 /**
  * ClassName: OrderController
  * Pacage: com.atguigu.cloud.controller
@@ -33,7 +35,20 @@ public class OrderController {
 
     @GetMapping(value = "/feign/pay/get/{id}")
     public ResultData getPayId(@PathVariable("id") Integer id) {
-        ResultData payInfo = payFeignApi.getPayInfo(id);
+        LocalDateTime start = LocalDateTime.now();
+        System.out.println(("调用开始时间  == " + start));
+
+        ResultData payInfo = null;
+        try {
+            payInfo = payFeignApi.getPayInfo(id);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            LocalDateTime end = LocalDateTime.now();
+            System.out.println("延时退出时间  == " + end);
+        }
+
+
         return payInfo;
     }
 

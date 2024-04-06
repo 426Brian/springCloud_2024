@@ -15,11 +15,29 @@ spring:
     openfeign:
       client:
         config:
-          default: # defalt 设置全局服务超时时间，优先权低于具体服务的超时配置
-            connect-timeout: 3000 # 连接超时3s
-            read-timeout: 3000 # 读取超时3s
+          #          default: # defalt 设置全局服务超时时间，优先权低于具体服务的超时配置
+          #            connect-timeout: 3000 # 连接超时3s
+          #            read-timeout: 3000 # 读取超时3s
           cloud-payment-service: #具体服务的超时配置，可以跟全局同时使用，单个的优先权高
-            connect-timeout: 5000 # 连接超时3s
-            read-timeout: 3000 # 读取超时3s
+            connect-timeout: 2000 # 连接超时3s
+            read-timeout: 2000 # 读取超时3s
+      httpclient: # hettpclient 比 client 有连接池,因此性能更强大
+        hc5:
+          enabled: true
+      compression:
+        request:
+          enabled: true
+          min-request-size: 2048 #最小触发压缩的大小
+          mime-types: text/xml,application/xml,application/json #触发压缩数据类型
+        response:
+          enabled: true
 
 # welcome to atguigu ,if you need help ,please send email to zzyybs@126.com
+# feign日志以什么级别监控哪个接口
+logging:
+  level:
+    com: # 以层级的方式配置包名到类名，日志管理
+      atguigu:
+        cloud:
+          apis:
+            PayFeignApi: debug
