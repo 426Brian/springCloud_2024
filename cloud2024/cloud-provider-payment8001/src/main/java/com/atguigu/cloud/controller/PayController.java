@@ -61,11 +61,11 @@ public class PayController {
         if (id == -4) throw new RuntimeException("id不能为负数");
 
         //暂停62秒钟线程,故意写bug，测试出feign的默认调用超时时间
-        try {
-            TimeUnit.SECONDS.sleep(62);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            TimeUnit.SECONDS.sleep(62);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
         Pay pay = payService.getById(id);
 
