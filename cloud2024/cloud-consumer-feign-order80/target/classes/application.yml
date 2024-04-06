@@ -1,0 +1,21 @@
+server:
+  port: 8003
+
+spring:
+  application:
+    name: cloud-consumer-order-Feign
+  ####Spring Cloud Consul for Service Discovery
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        prefer-ip-address: true #优先使用服务ip进行注册
+        service-name: ${spring.application.name}
+    openfeign:
+      client:
+        config:
+          default:
+            connect-timeout: 3000 # 连接超时3s
+            read-timeout: 3000 # 读取超时3s
+# welcome to atguigu ,if you need help ,please send email to zzyybs@126.com
