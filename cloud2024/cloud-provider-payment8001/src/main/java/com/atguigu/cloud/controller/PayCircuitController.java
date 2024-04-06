@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class PayCircuitController
 {
     //=========Resilience4j CircuitBreaker 的例子
-    /*@GetMapping(value = "/pay/circuit/{id}")
+    @GetMapping(value = "/pay/circuit/{id}")
     public String myCircuit(@PathVariable("id") Integer id)
     {
         if(id == -4) throw new RuntimeException("----circuit id 不能负数");
@@ -26,7 +26,7 @@ public class PayCircuitController
         }
 
         return "Hello, circuit! inputId:  "+id+" \t " + IdUtil.simpleUUID();
-    }*/
+    }
 
     //=========Resilience4j bulkhead 的例子
     @GetMapping(value = "/pay/bulkhead/{id}")

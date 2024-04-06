@@ -21,5 +21,6 @@ import org.springframework.cloud.openfeign.FeignClient;
 public class MainFeign80 {
     public static void main(String[] args) {
         SpringApplication.run(MainFeign80.class, args);
+
     }
 }
