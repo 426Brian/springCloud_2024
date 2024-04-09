@@ -1,5 +1,5 @@
 server:
-  port: 8003
+  port: 80
 
 spring:
   application:
@@ -32,7 +32,7 @@ spring:
         response:
           enabled: true
       circuitbreaker:
-        enabled: true
+        enabled: false
 #        group:
 #          enabled: true
 
