@@ -2,12 +2,11 @@ package com.atguigu.cloud.apis;
 
 import com.atguigu.cloud.entities.PayDTO;
 import com.atguigu.cloud.resp.ResultData;
+import feign.Headers;
+import org.springframework.boot.web.server.Cookie;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @auther Brian
@@ -88,6 +87,9 @@ public interface PayFeignApi
      */
     @GetMapping(value = "/pay/gateway/info")
     public ResultData<String> getGatewayInfo();
+
+    @GetMapping(value = "/pay/gateway/predicate")
+    public ResultData<String> getGatewayPredicate(@RequestHeader("Cookie") String cookie);
 
     @GetMapping(value = "/pay/get/info")
     String getConfigProperties();
