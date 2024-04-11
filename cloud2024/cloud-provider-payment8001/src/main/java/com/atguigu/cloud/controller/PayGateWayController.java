@@ -30,6 +30,7 @@ public class PayGateWayController {
 
     @GetMapping(value = "/pay/gateway/info")
     public ResultData<String> getGatewayInfo() {
+
         return ResultData.success("gateway info test：" + IdUtil.simpleUUID());
     }
 

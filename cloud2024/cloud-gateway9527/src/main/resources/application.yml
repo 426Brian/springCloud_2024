@@ -51,6 +51,7 @@ spring:
             - Path=/pay/gateway/filter/**              # 断言，路径相匹配的进行路由
 #            - Path=/XYZ/abc/{segment}
           filters:
+            - My=atguigu
 #            - RedirectTo=302, http://www.atgui.com
 #            - SetPath=/pay/gateway/{segment}
 #            - PrefixPath=/pay    #请求路径变为 PrefixPath+Path 浏览器访问时隐藏前缀，直接用path 就可以
