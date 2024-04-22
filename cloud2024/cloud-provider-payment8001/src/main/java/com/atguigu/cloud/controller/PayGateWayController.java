@@ -34,12 +34,6 @@ public class PayGateWayController {
         return ResultData.success("gateway info test：" + IdUtil.simpleUUID());
     }
 
-    @GetMapping(value = "/pay/gateway/predicate")
-    public ResultData<String> getGatewayPredicate() {
-        return ResultData.success("gateway predicate test：" + IdUtil.simpleUUID());
-    }
-
-
     @GetMapping(value = "/pay/gateway/filter")
     public ResultData<String> getGatewayFilter(HttpServletRequest request) {
         String result = "";

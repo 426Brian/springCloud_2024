@@ -3,6 +3,7 @@ package com.atguigu.cloud.controller;
 import com.atguigu.cloud.apis.PayFeignApi;
 import com.atguigu.cloud.entities.PayDTO;
 import com.atguigu.cloud.resp.ResultData;
+import com.atguigu.cloud.resp.ReturnCodeEnum;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -42,7 +43,8 @@ public class OrderController {
         try {
             payInfo = payFeignApi.getPayInfo(id);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            return ResultData.fail(ReturnCodeEnum.RC408.getCode(), ReturnCodeEnum.RC408.getMessage());
         } finally {
             LocalDateTime end = LocalDateTime.now();
             System.out.println("延时退出时间  == " + end);

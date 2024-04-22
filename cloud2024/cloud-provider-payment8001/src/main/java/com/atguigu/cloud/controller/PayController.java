@@ -8,6 +8,9 @@ import com.atguigu.cloud.service.PayService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Value;
@@ -98,5 +101,14 @@ public class PayController {
         return "atguiguInfo: " + atguiguInfo + "\t" + "port: " + port;
     }
 
+    @GetMapping
+    public void test(HttpServletRequest request, HttpServletResponse response){
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/");
 
+
+    }
+
+    public void test(String str, Long number){
+
+    }
 }
